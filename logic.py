@@ -61,7 +61,7 @@ class TicTacTocGame():
                 cell_str = str(cell) if cell is not None else " "
                 print(cell_str.ljust(max_width), end=" | ")
             print("\n" + "- " * max_width * 3)
-        
+
 
 class BotPlayer():
     def __init__(self):
