@@ -21,9 +21,14 @@ if __name__ == '__main__':
         if player == "X":
             while game.get_winner() == None:
                 print('Take your turn(X)')
-                
                 pos_x, pos_y = input("Enter a position(x,y), split with space: ").split()
                 game.board[int(pos_x)][int(pos_y)] = player
+
+                #get first move
+                if game.is_board_empty():
+                    game.first_move["player"] = player
+                    game.first_move["position"] = [int(pos_x), int(pos_y)]
+
                 game.print_board()
                 #print(game.get_winner())
                 if game.get_winner() == None:

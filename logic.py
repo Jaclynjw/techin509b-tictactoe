@@ -10,14 +10,7 @@ class TicTacTocGame():
         self.player = "X"
         self.winner = None
         self.mode = None
-
-
-    def make_empty_board(self):
-        return [
-            [None, None, None],
-            [None, None, None],
-            [None, None, None],
-        ]
+        self.first_move = {"player": None, "position": None}
 
 
     def get_winner(self):
@@ -78,6 +71,14 @@ class TicTacTocGame():
                 cell_str = str(cell) if cell is not None else " "
                 print(cell_str.ljust(max_width), end=" | ")
             print("\n" + "- " * max_width * 3)
+    
+    def is_board_empty(self):
+        """Returns True if the board is empty."""
+        for row in self.board:
+            for cell in row:
+                if cell is not None:
+                    return False
+        return True
 
 
 class BotPlayer():
